@@ -1,5 +1,5 @@
 # Pokedex 
-A nice lookup Pokedex. I used PokeApi to retrieve the information
+A nice looking Pokedex. I used PokeApi to retrieve the information
 ## Figma mockups
 
 ![image](https://user-images.githubusercontent.com/100126834/222886675-13bd9f8b-6c85-43ec-818d-d7a418344eb5.png)
