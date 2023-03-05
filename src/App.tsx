@@ -1,15 +1,46 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./components/pokemon.css";
+import axios from "axios";
+import PokemonCollections from "./components/PokemonCollections";
+import { Pokemon } from "./components/interface";
+import Sidebar from "./components/Sidebar";
 
-const [pokemons, setPokemons] = useState([])
+interface Pokemons {
+  name: string;
+  url: string;
+}
 
-function App() {
+const App: React.FC = () => {
+  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+
+  useEffect(() => {
+    const getPokemon = async () => {
+      const result = await axios.get(
+        "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
+      );
+
+      console.log(result.data.results);
+      result.data.results.forEach(async (pokemon: Pokemons) => {
+        const poki = await axios.get(
+          `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
+        );
+        setPokemons((p) => [...p, poki.data]); //sread opearator, so everytime a pokemon is added, it will not crash others
+      });
+    };
+    getPokemon();
+  }, []);
+
+  console.log(pokemons);
+
   return (
     <div className="App">
-      <header className="pokemon-header">Pokemon</header>
+      <header className="pokemon-header">
+        Pokemon
+        <Sidebar />
+        {/* <PokemonCollections pokemons={pokemons} /> */}
+      </header>
     </div>
   );
-}
+};
 
 export default App;
