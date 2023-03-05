@@ -34,11 +34,11 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <header className="pokemon-header">
+      <div className="pokemon_container">
         Pokemon
         <Sidebar />
         {/* <PokemonCollections pokemons={pokemons} /> */}
-      </header>
+      </div>
     </div>
   );
 };
