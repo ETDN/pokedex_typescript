@@ -1,47 +1,43 @@
-import React, { useEffect, useState } from "react";
-import "./css/sidebar.css";
-import axios from "axios";
-import { Pokemon } from "../components/interface";
+import React, { useState } from "react";
+import "../components/css/sidebar.css";
+import { Pokemon } from "./interface";
 
-interface Pokemons {
-  type: string;
-  name: string;
+interface Props {
+  onCategoryClick: (category: string) => void;
+  setDisplayedPokemons: (pokemons: Pokemon[]) => void;
 }
 
-function Sidebar() {
-  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
+function Sidebar(props: Props) {
+  const { onCategoryClick, setDisplayedPokemons } = props;
+  const [categories, setCategories] = useState<string[]>([
+    "normal",
+    "fire",
+    "water",
+    "grass",
+    "electric",
+    "ice",
+    "fighting",
+    "poison",
+    "ground",
+    "flying",
+    "psychic",
+    "bug",
+    "rock",
+    "ghost",
+    "dragon",
+    "dark",
+    "steel",
+    "fairy",
+  ]);
 
-  useEffect(() => {
-    const getPokemon = async () => {
-      const result = await axios.get(
-        "https://pokeapi.co/api/v2/pokemon?limit=100&offset=0"
-      );
-
-      const pokemonsData = await Promise.all(
-        result.data.results.map(async (pokemon: Pokemons) => {
-          const poki = await axios.get(
-            `https://pokeapi.co/api/v2/pokemon/${pokemon.name}/`
-          );
-          return poki.data;
-        })
-      );
-
-      setPokemons(pokemonsData);
-    };
-
-    getPokemon();
-  }, []);
-
-  // Create an array of all types of Pokemons
-  const allTypes = Array.from(
-    new Set(
-      pokemons.flatMap((pokemon) => pokemon.types.map((type) => type.type.name))
-    )
-  );
-
-  const handleCategoryClick = (category: string) => {
-    setSelectedCategory(category);
+  const handleClick = async (category: string) => {
+    onCategoryClick(category);
+    const result = await fetch(`https://pokeapi.co/api/v2/type/${category}`);
+    const data = await result.json();
+    const categoryPokemons = data.pokemon
+      .slice(0, 5)
+      .map((p: any) => p.pokemon);
+    setDisplayedPokemons(categoryPokemons);
   };
 
   return (
@@ -52,11 +48,9 @@ function Sidebar() {
         </div>
         <p className="categorie">Categories</p>
         <ul>
-          {allTypes.map((type) => (
-            <li key={type}>
-              <a href="#" onClick={() => handleCategoryClick(type)}>
-                {type}
-              </a>
+          {categories.map((category, index) => (
+            <li key={index} onClick={() => handleClick(category)}>
+              {category}
             </li>
           ))}
         </ul>

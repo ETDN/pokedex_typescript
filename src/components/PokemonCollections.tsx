@@ -1,4 +1,4 @@
-import "../components/pokemon.css";
+import React from "react";
 import { Pokemon } from "./interface";
 import PokemonList from "./PokemonList";
 
@@ -23,8 +23,10 @@ function PokemonCollections(props: Props) {
             key={pokemon.id}
             name={pokemon.name}
             id={pokemon.id}
-            image={pokemon.sprites.front_default}
-            type={pokemon.types[0].type.name}
+            // image={
+            //   pokemon.sprites.front_default
+            // }
+            // type={pokemon.types[0]?.type.name}
           />
         );
       })}

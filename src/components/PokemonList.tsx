@@ -3,19 +3,19 @@ import React from "react";
 interface Props {
   name: string;
   id: number;
-  image: string;
-  type: string;
+  // image: string;
+  // type: string;
 }
 
 function PokemonList(props: Props) {
-  const { name, id, image, type } = props;
+  const { name, id } = props;
   return (
     <div>
-      <section className={`pokemon_list_container ${type}`}>
+      <section className={`pokemon_list_container `}>
         <p className="pokemon_name"> # {id}</p>
         <p className="pokemon_name">{name}</p>
-        <img src={image} alt={name}></img>
-        <p className="pokemon_name">Type : {type}</p>
+        {/* <img src={image} alt={name}></img> */}
+        {/* <p className="pokemon_name">Type : {type}</p> */}
       </section>
     </div>
   );

@@ -39,20 +39,25 @@ const App: React.FC = () => {
       const filteredPokemons = pokemons.filter((pokemon) =>
         pokemon.types.some((type) => type.type.name === selectedCategory)
       );
-      setDisplayedPokemons(filteredPokemons);
+      setDisplayedPokemons(filteredPokemons.slice(0, 5));
     }
-    console.log("Selected Category:", selectedCategory);
   }, [selectedCategory, pokemons]);
+
+  const handleCategoryClick = (category: string) => {
+    setSelectedCategory(category);
+  };
 
   return (
     <div className="pokemon_container">
-      <Sidebar />
+      <Sidebar
+        onCategoryClick={handleCategoryClick}
+        setDisplayedPokemons={setDisplayedPokemons}
+      />
       <PokemonCollections
         pokemons={displayedPokemons}
         selectedCategory={selectedCategory}
-        name="Pokemons"
+        name="My Pokemon Collection"
       />
-      {/* <PokemonList key={pokemon.id} pokemon={pokemon} /> */}
     </div>
   );
 };
