@@ -34,3 +34,20 @@ ul {
   gap: 1rem;
   padding: 10px;
 }
+
+@media only screen and (max-width: 768px) {
+  .sidebar_container {
+    position: static;
+    width: 100%;
+  }
+
+  ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin: 0;
+  }
+}

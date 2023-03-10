@@ -1,17 +1,22 @@
-import React from "react";
+import "../components/pokemon.css";
 import { Pokemon } from "./interface";
 import PokemonList from "./PokemonList";
 
 interface Props {
   pokemons: Pokemon[];
+  selectedCategory: string;
+  name: string;
 }
 
 function PokemonCollections(props: Props) {
-  const { pokemons } = props;
+  const { pokemons, selectedCategory, name } = props;
 
   return (
-    <section className="container">
-      PokemonCollections
+    <div className="pokemon_list">
+      <h2>{name}</h2>
+      <p className="pokemon_infos">
+        Selected Category: {selectedCategory || "All"}
+      </p>
       {pokemons.map((pokemon) => {
         return (
           <PokemonList
@@ -23,7 +28,7 @@ function PokemonCollections(props: Props) {
           />
         );
       })}
-    </section>
+    </div>
   );
 }
 

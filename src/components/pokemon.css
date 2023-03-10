@@ -1,11 +1,10 @@
 @import url("https://fonts.cdnfonts.com/css/pocket-monk");
 
-.App {
-  font-family: "Pocket Monk", sans-serif;
-}
-
 .pokemon_container {
+  font-family: "Pocket Monk", sans-serif;
   background-color: #03143f;
+  /* justify-content: center; */
+  color: black;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -13,7 +12,7 @@
 }
 
 .pokemon_name {
-  color: white;
+  color: black;
 }
 
 .sidebar_container {
@@ -31,6 +30,21 @@
   flex-direction: column;
 }
 
+.pokemon_list {
+  position: fixed;
+  top: 50px;
+  left: 30%;
+  transform: translateX(-50%);
+  color: white;
+}
+
+.pokemons_infos {
+  color: white;
+}
+
+.pokemon_name {
+  color: white;
+}
 /* 
 .App-link {
   font-weight: 600;
