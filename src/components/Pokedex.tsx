@@ -4,8 +4,6 @@ import axios from "axios";
 import PokemonCollections from "./PokemonCollections";
 import { Pokemon } from "./interface";
 import Sidebar from "./Sidebar";
-import Test from "./Test";
-import PokemonList from "./PokemonList";
 
 const App: React.FC = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -15,7 +13,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const getPokemon = async () => {
       const result = await axios.get(
-        "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0"
+        "https://pokeapi.co/api/v2/pokemon?limit=200&offset=0"
       );
 
       const pokemonsData = await Promise.all(
@@ -36,6 +34,7 @@ const App: React.FC = () => {
     if (selectedCategory === "") {
       setDisplayedPokemons(pokemons);
     } else {
+      //Returns the elements of an array that meet the condition specified in a callback function.
       const filteredPokemons = pokemons.filter((pokemon) =>
         pokemon.types.some((type) => type.type.name === selectedCategory)
       );
