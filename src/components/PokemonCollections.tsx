@@ -1,5 +1,7 @@
 import { Pokemon } from "./interface";
 import PokemonList from "./PokemonList";
+import { useState } from "react";
+import { FcSearch } from "react-icons/fc";
 
 interface Props {
   pokemons: Pokemon[];
@@ -9,9 +11,31 @@ interface Props {
 
 function PokemonCollections(props: Props) {
   const { pokemons, selectedCategory, name } = props;
+  const [searchPoki, setSearchPoki] = useState("");
+
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchPoki(event.target.value);
+  };
+
+  const filteredPokemons = pokemons.filter((pokemon) =>
+    pokemon.name.toLowerCase().includes(searchPoki.toLowerCase())
+  );
 
   return (
     <div className="pokemon_display">
+      <div className="search_bar">
+        <form>
+          <input
+            type="text"
+            placeholder="Name"
+            value={searchPoki}
+            onChange={handleSearch}
+          />
+          <i className="search_icon">
+            <FcSearch />
+          </i>
+        </form>
+      </div>
       <div className="title">
         <h2>{name}</h2>
       </div>
@@ -19,7 +43,7 @@ function PokemonCollections(props: Props) {
         <p>Selected Category: {selectedCategory || "All"}</p>
       </div>
       <div className="pokemon_list">
-        {pokemons.map((pokemon) => {
+        {filteredPokemons.map((pokemon) => {
           const key = selectedCategory
             ? `${Math.random()}-${selectedCategory}`
             : `${selectedCategory}-${Math.random()}`;

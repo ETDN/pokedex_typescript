@@ -8,7 +8,10 @@ const App: React.FC = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Pokedex />} />
-        <Route path="/pokemon/:id" element={<PokemonInfo />} />
+        <Route
+          path="/pokemon/:id/:name/:type/:image"
+          element={<PokemonInfo />}
+        />
       </Routes>
     </BrowserRouter>
   );

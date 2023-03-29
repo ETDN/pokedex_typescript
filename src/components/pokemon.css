@@ -3,7 +3,6 @@
 .pokemon_container {
   font-family: "Pocket Monk", sans-serif;
   background-color: #03143f;
-  /* justify-content: center; */
   color: black;
   min-height: 100vh;
   display: flex;
@@ -13,7 +12,8 @@
 }
 
 .pokemon_name,
-.pokemon_display {
+.pokemon_display,
+.pokemons_infos {
   margin-left: 20%;
   color: white;
 }
@@ -51,8 +51,60 @@
   overflow-y: scroll;
 }
 
-.pokemons_infos,
-.pokemon_name {
+form {
+  display: flex;
+  margin-top: 5%;
+  float: right;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s;
+  width: 50px;
+  height: 50px;
+  background: white;
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 4px solid white;
+  padding: 5px;
+}
+
+input {
+  display: flex;
+  margin-top: -5px;
+  left: 0;
+  width: 100%;
+  height: 42.5px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  display: none;
+  font-size: 0.8em;
+  border-radius: 20px;
+  padding: 0 20px;
+}
+
+.search_icon {
+  box-sizing: border-box;
+  padding: 5px;
+  width: 42.5px;
+  height: 42.5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  color: #07051a;
+  text-align: center;
+  font-size: 1.2em;
+  transition: all 1s;
+}
+
+form:hover {
+  width: 200px;
+  cursor: pointer;
+}
+form:hover input {
+  display: block;
+}
+form:hover .search_icon {
+  background: #f6c035;
   color: white;
 }
 
