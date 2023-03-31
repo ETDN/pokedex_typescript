@@ -38,10 +38,10 @@ function PokemonCollections(props: Props) {
       </div>
       <div className="title">
         <h1 id="h1_collection">{name}</h1>
+        <h3 className="selected_category">
+          Selected Category: {selectedCategory || "All"}
+        </h3>
       </div>
-      <h3 className="selected_category">
-        Selected Category: {selectedCategory || "All"}
-      </h3>
       <div className="pokemon_list">
         {filteredPokemons.map((pokemon) => {
           const key = selectedCategory

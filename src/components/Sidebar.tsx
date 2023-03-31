@@ -49,7 +49,11 @@ function Sidebar(props: Props) {
         <p className="categorie">Categories</p>
         <ul>
           {categories.map((category, index) => (
-            <li key={index} onClick={() => handleClick(category)}>
+            <li
+              key={index}
+              onClick={() => handleClick(category)}
+              className={`category_${index}`}
+            >
               {category}
             </li>
           ))}

@@ -51,3 +51,19 @@ ul {
     margin: 0;
   }
 }
+
+.category_0 {
+  color: red;
+}
+
+.category_1 {
+  color: orange;
+}
+
+.category_2 {
+  color: blue;
+}
+
+.category_3 {
+  color: green;
+}

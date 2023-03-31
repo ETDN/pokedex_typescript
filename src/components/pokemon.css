@@ -13,18 +13,21 @@
 
 .title {
   margin-top: 12vh;
+  margin-left: 20%;
+}
+
+.selected_category {
+  color: white;
 }
 
 .pokemon_name,
-.pokemon_display {
-  margin-left: 20%;
+.pokemon_type {
+  margin-top: -15px;
   color: white;
 }
 
 .pokemon_image {
-  margin-top: -5px;
-  margin-left: 2vh;
-  width: 25vh;
+  width: 20vh;
 }
 
 .sidebar_container {
@@ -57,6 +60,9 @@
 }
 
 .pokemon_list_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   background-color: #91aef8;
   border: #03143f 2px solid;
   margin-top: 7vh;
@@ -64,6 +70,12 @@
   margin-left: 5vh;
   height: 30vh;
   width: 30vh;
+}
+
+.pokemon_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #h1_collection {

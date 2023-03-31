@@ -20,12 +20,14 @@ function PokemonList(props: Props) {
   return (
     <div>
       <Link to={`/pokemon/${id}/${name}/${type}`}>
-        <div className={`pokemon_list_container `}>
-          <img className="pokemon_image" src={image} alt={name}></img>
-          <p className="pokemon_name" onClick={handleClick}>
-            {name}
-          </p>
-          {type && <p className="pokemon_type">{type}</p>}
+        <div className="pokemon_list_container">
+          <div className="pokemon_item">
+            <img className="pokemon_image" src={image} alt={name}></img>
+            <p className="pokemon_name" onClick={handleClick}>
+              {name}
+            </p>
+            {type && <p className="pokemon_type">{type}</p>}
+          </div>
         </div>
       </Link>
     </div>
