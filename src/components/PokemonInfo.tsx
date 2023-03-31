@@ -10,7 +10,7 @@ function PokemonInfo() {
       <p>NUMBER: {name}</p>
       <p>Id: {id}</p>
       <p>Type: {type}</p>
-      <img src={image} alt={name}></img>
+      {/* <img src={image} alt={name}></img> */}
 
       {/* Render other Pokemon info here */}
     </div>

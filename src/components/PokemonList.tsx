@@ -14,20 +14,19 @@ function PokemonList(props: Props) {
 
   const handleClick = () => {
     // Navigate to the page with the selected Pokemon's information
-    history(`/pokemon/${id}/${name}/${type}/${image}`);
+    history(`/pokemon/${id}/${name}/${type}`);
   };
 
   return (
     <div>
-      <Link to={`/pokemon/${id}/${name}/${type}/${image}`}>
-        <section className={`pokemon_list_container `}>
-          <p className="pokemon_name"> # {id}</p>
+      <Link to={`/pokemon/${id}/${name}/${type}`}>
+        <div className={`pokemon_list_container `}>
+          <img className="pokemon_image" src={image} alt={name}></img>
           <p className="pokemon_name" onClick={handleClick}>
             {name}
           </p>
-          {/* {type && <p className="pokemon_name">Type : {type}</p>} */}
-          <img className="pokemon_image" src={image} alt={name}></img>
-        </section>
+          {type && <p className="pokemon_type">{type}</p>}
+        </div>
       </Link>
     </div>
   );

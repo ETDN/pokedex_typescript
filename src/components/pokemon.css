@@ -11,14 +11,19 @@
   overflow-y: scroll;
 }
 
+.title {
+  margin-top: 12vh;
+}
+
 .pokemon_name,
-.pokemon_display,
-.pokemons_infos {
+.pokemon_display {
   margin-left: 20%;
   color: white;
 }
 
 .pokemon_image {
+  margin-top: -5px;
+  margin-left: 2vh;
   width: 25vh;
 }
 
@@ -49,6 +54,23 @@
   width: 80%;
   height: 80vh; /* Set a fixed height */
   overflow-y: scroll;
+}
+
+.pokemon_list_container {
+  background-color: #91aef8;
+  border: #03143f 2px solid;
+  margin-top: 7vh;
+  margin-bottom: 5vh;
+  margin-left: 5vh;
+  height: 30vh;
+  width: 30vh;
+}
+
+#h1_collection {
+  font-size: 45px;
+  margin-top: -3.5vh;
+  margin-bottom: 1vh;
+  color: #f6c035;
 }
 
 form {

@@ -37,11 +37,11 @@ function PokemonCollections(props: Props) {
         </form>
       </div>
       <div className="title">
-        <h2>{name}</h2>
+        <h1 id="h1_collection">{name}</h1>
       </div>
-      <div className="pokemon_infos">
-        <p>Selected Category: {selectedCategory || "All"}</p>
-      </div>
+      <h3 className="selected_category">
+        Selected Category: {selectedCategory || "All"}
+      </h3>
       <div className="pokemon_list">
         {filteredPokemons.map((pokemon) => {
           const key = selectedCategory
